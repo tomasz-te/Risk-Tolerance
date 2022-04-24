@@ -1,4 +1,3 @@
 Flask==2.0.2
 numpy==1.22.1
-pickle==3.10.4
-
+gunicorn==20.1.0

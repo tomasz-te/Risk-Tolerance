@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Risk Tolerance Advisor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>Risk Tolerance Advisor</h1>
+
+    <form action="{{ url_for('predict')}}"method="post">
+
+    	<input type="text" name="AGE07" placeholder="Age: 18 - 100" required="required" />
+        <input type="text" name="EDCL07" placeholder="Education: 1 - Middle or lower, 2 - High school, 3 - Senior high, 4 - College or more" required="required" />
+		<input type="text" name="MARRIED07" placeholder="Married: 1 - yes, 2 - no" required="required" />
+        <input type="text" name="KIDS07" placeholder="Number of kids: 0 - 10" required="required" />
+        <input type="text" name="OCCAT107" placeholder="Occupation: 1 - employee, 2 - self-employed, 3 - retired/disabled/student, 4 - else" required="required" />
+		<input type="text" name="INCOME07" placeholder="Yearly income in USD" required="required" />
+        <input type="text" name="RISK07" placeholder="Risk willingness: 1 - highest , 4 - lowest." required="required" />
+        <input type="text" name="WSAVED07" placeholder="Spending ratio: 1 spending > income, 2 spening ~ income, 3 spendng < income" required="required" />
+		<input type="text" name="SPENDMOR07" placeholder="Spending more if the assets have appreciated. 1 - not at all, 5 - is willing very much" required="required" />
+        <input type="text" name="HHOUSES07" placeholder="House ownership: 1 - own a house, 0 - does not own a house" required="required" />
+        <input type="text" name="NETWORTH07" placeholder="Networth in USD" required="required" />
+		<button type="submit" class="btn btn-primary btn-block btn-large">Estimate risk tolerance</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
